@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es" id="miHtml" class="text-center">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- ajusta contenido a la página, ancho dispositivo escala al 100% -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Diana Pichel">
+  <meta name="keywords" content="Ciclismo, Ciclocrós, Competiciones, Premios,ciclista">
+  <meta name="description" content="Información de actualidad competiciones ciclocrós">
+  <title>Contacto- Proyecto Ciclista Norte de España</title>
+  <!--css-->
+  <!--
+  <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="css/bootstrap-grid.css" rel="stylesheet" type="text/css">
+
+  <script src="js/bootstrap.bundle.js"></script>
+  -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:wght@800&family=Roboto:wght@500&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <!--aviso legal -->
+  <%- include('./AvisoLegal') %>
+
+  <!--política accesibilidad -->
+  <%- include('./Accesibilidad') %>
+
+
+  <header>
+    <!-- logo -->
+    <div>
+      <img class="img-fluid mt-4 mb-4" width="700" src="imagenes/cne.png"
+        alt="Logo Proyecto Ciclista Norte de España">
+
+      <h1 class="d-none">Proyecto Ciclista Norte de España</h1>
+    </div>
+
+  </header>
+
+
+
+  <!-- menu -->
+  <%- include('./MenuNavegacion') %>
+
+  <main>
+
+    <section>
+      <h2 class="container-fluid bg-dark text-white display-4 pb-5 pt-5 fw-bold">¿Alguna duda?</h2>
+
+      <div class="container-fluid col-8 mb-4 mt-4 text-start">
+        <p> ¿quieres saber más sobre este deporte tan emocionante? ¿tienes alguna cuestión relacionada con el mundo del ciclocrós?
+	No dudes en realizarnos cualquier consulta, estamos aquí para lo que necesites. Rellena el siguiente formulario y nos podremos en contacto contigo 
+	lo antes posible.
+
+        </p>
+      </div>
+
+      <!-- Formulario-->
+      <div class="container mt-5">
+        <form autocomplete="off">
+          <div class="form-group text-start text-danger fw-bold fs-3">
+            <label class="mb-2" for="nombre">Nombre:</label>
+            <input type="text" class="form-control mb-4" id="nombre" placeholder="Introduce el nombre">
+          </div>
+
+          <div class="form-group text-start text-danger fw-bold fs-3">
+            <label class="mb-2" for="apellidos">Apellidos:</label>
+            <input type="text" class="form-control mb-4" id="apellidos" placeholder="Introduce los apellidos">
+          </div>
+
+          <div class="form-group text-start text-danger fw-bold fs-3">
+            <label class="mb-2" for="edad">Edad:</label>
+            <input type="text" class="form-control mb-4" id="edad" placeholder="Introduce la edad">
+          </div>
+
+          <div class="form-group text-start text-danger fw-bold fs-3">
+            <label class="mb-2" for="email">Correo Electrónico:</label>
+            <input type="email" class="form-control mb-4" id="email" placeholder="Introduce el correo electrónico">
+          </div>
+
+          <div class="form-group text-start text-danger fw-bold fs-3">
+            <label class="mb-2" for="asunto">Asunto:</label>
+            <input type="text" class="form-control mb-4" id="asunto" placeholder="Introduce el asunto">
+          </div>
+
+          <div class="form-group text-start text-danger fw-bold fs-3">
+            <label class="mb-2" for="mensaje">Mensaje:</label>
+            <textarea class="form-control mb-4" id="mensaje" rows="5" placeholder="Introduce el mensaje"></textarea>
+          </div>
+
+          <button type="button" class="btn btn-danger mt-5" onclick="validacion()">Enviar</button>
+        </form>
+      </div>
+    </section>
+    <section>
+      <!-- patrocinadores-->
+      <div>
+        <h3 class="display-5 fw-bold mb-5 mt-5 text-center">Patrocinadores</h3>
+
+        <div class="container mb-5">
+          <div class="row justify-content-center">
+            <div class="col-lg-2 col-md-4 col-6 d-flex justify-content-center p-2">
+              <a href="https://www.carrefour.es/" target="_blank" rel="noopener noreferrer">
+                <img class="patrocinadores img-fluid" src="imagenes/carrefour.png" alt="Carrefour">
+              </a>
+             
+            </div>
+            <div class="col-lg-2 col-md-4 col-6 d-flex justify-content-center p-2">
+              <a href="https://www.correos.es/" target="_blank" rel="noopener noreferrer">
+              <img class="patrocinadores img-fluid" src="imagenes/correos.png" alt="Correos">
+            </a>
+            </div>
+
+            <div class="col-lg-2 col-md-4 col-6 d-flex justify-content-center p-2">
+            <a href="http://www.elpozo.es/" target="_blank" rel="noopener noreferrer">
+              <img class="patrocinadores img-fluid" src="imagenes/elpozo.png" alt="ElPozo">
+            </a>
+            </div>
+
+            <div class="col-lg-2 col-md-4 col-6 d-flex justify-content-center p-2">
+              <a href="https://eurovisionsport.com/.es/" target="_blank" rel="noopener noreferrer">
+              <img class="patrocinadores img-fluid" src="imagenes/eurovision.png" alt="Eurovisión">
+            </a>
+            </div>
+
+            <div class="col-lg-2 col-md-4 col-6 d-flex justify-content-center p-2">
+              <a href="https://www.skoda.es/" target="_blank" rel="noopener noreferrer">
+                <img class="patrocinadores img-fluid" src="imagenes/skoda.png" alt="Skoda">
+              </a>
+            </div>
+            <div class="col-lg-2 col-md-4 col-6 d-flex justify-content-center p-2">
+              <a href="https://www.tissotwatches.com/es-es" target="_blank" rel="noopener noreferrer">
+                <img class="patrocinadores img-fluid" src="imagenes/tissot.png" alt="Tissot">
+              </a> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  
+   <!--Pie de la web-->
+   <%- include('./Footer') %>
+
+  <!-- cambio tamaño fuente botones A+/- -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        function aumentarLetra() {
+            var fontSize = parseInt(document.body.style.fontSize) || 16;
+            fontSize += 2;
+            document.body.style.fontSize = fontSize + "px";
+        }
+
+        function reducirLetra() {
+            var fontSize = parseInt(document.body.style.fontSize) || 16;
+            fontSize -= 2;
+            document.body.style.fontSize = fontSize + "px";
+        }
+
+        document.getElementById("ampliar-letra").addEventListener("click", function (event) {
+            event.preventDefault();
+            aumentarLetra(); 
+        });
+
+        document.getElementById("reducir-letra").addEventListener("click", function (event) {
+            event.preventDefault(); 
+            reducirLetra(); 
+        });
+    });
+  </script>
+
+  <!--fecha y hora-->
+
+  <script>
+    function mostrarFechaHora() {
+
+      var fechaHoraElemento = document.getElementById('fechaHora');
+
+      var fechaHora = new Date();
+
+      var formatoFechaHora = fechaHora.toLocaleString();
+
+      fechaHoraElemento.textContent = formatoFechaHora;
+    }
+
+    mostrarFechaHora();
+  </script>
+
+
+  <!--validar Formulario-->
+  <script>
+/*
+    document.getElementById("nombre").addEventListener("focusout", validarNombre);
+    document.getElementById("apellidos").addEventListener("focusout", validarApellidos);
+    document.getElementById("edad").addEventListener("focusout", validarEdad);
+    document.getElementById("email").addEventListener("focusout", validarEmail);
+    document.getElementById("asunto").addEventListener("focusout", validarAsunto);
+    document.getElementById("mensaje").addEventListener("focusout", validarMensaje);
+*/
+
+
+    function validarNombre() {
+
+      var nombre = document.getElementById("nombre").value;
+      valido = /^[a-zA-Z]{3,14}$/.test(nombre);
+      if (!valido) {
+        alert("El nombre debe de tener solo valores no numéricos (entre 3 y 14 caracteres).");
+        document.getElementById("nombre").focus();
+      }
+
+      return valido;
+    }
+
+    function validarApellidos() {
+      var apellidos = document.getElementById("apellidos").value;
+      valido = /^[a-zA-Z]{3,25}$/.test(apellidos);
+      if (!valido) {
+        alert("El apellido debe de tener solo valores no numéricos (entre 3 y 25 caracteres).");
+        document.getElementById("apellidos").focus();
+      }
+      return valido;
+
+    }
+
+    function validarEdad() {
+      var edad = document.getElementById("edad").value;
+      valido = /^[1-9][0-9]{1}$/.test(edad);
+      if (!valido) {
+        alert("La edad debe de tener solo valores numéricos entre 10 y 99.");
+        document.getElementById("edad").focus();
+      }
+      return valido;
+    }
+
+    function validarEmail() {
+      var email = document.getElementById("email").value;
+      valido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      if (!valido){
+
+        alert("Escribe un email válido, por favor.");
+        document.getElementById("email").focus();
+      }
+      return valido;
+    }
+
+    function validarAsunto() {
+      var asunto = document.getElementById("asunto").value;
+      valido = /^.{1,40}$/.test(asunto);
+      if (!valido){
+         alert("El asunto debe de tener entre 1 y 40 caracteres.")
+         document.getElementById("asunto").focus();
+      }
+      return valido;
+    }
+
+    function validarMensaje() {
+      var mensaje = document.getElementById("mensaje").value;
+      valido = /^.{1,400}$/.test(mensaje);
+      if (!valido){
+         alert("El mensaje debe de tener entre 1 y 400 caracteres.");
+         document.getElementById("mensaje").focus();
+      }
+      return valido;
+    }
+
+    function validacion() {
+      // Obtener valores campos
+
+
+      // Realiza validación
+      if (!validarNombre()) {
+
+        return;
+      }
+
+      if (!validarApellidos()) {
+
+        return;
+      }
+
+      if (!validarEdad()) {
+
+        return;
+      }
+
+      if (!validarEmail()) {
+
+        return;
+      }
+
+      if (!validarAsunto()) {
+
+        return;
+      }
+
+      if (!validarMensaje()) {
+
+        return;
+      }
+
+      // Si todas las validaciones pasan, mostrar mensaje de éxito
+      alert("La validación se realizó correctamente. Enviando formulario...");
+      document.getElementById("contactForm").submit();
+    }
+  </script>
+  <!-- Inclusión de los scripts de Bootstrap y de code.js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+  crossorigin="anonymous"></script>
+</body>
+
+</html>
+

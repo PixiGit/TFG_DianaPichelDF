@@ -1,0 +1,87 @@
+<html>
+<head>
+    <title>iisnode logs</title>
+    <style type="text/css">
+        body
+        {
+            font-family: "Trebuchet MS" , Arial, Helvetica, sans-serif;
+        }
+        table
+        {
+            border-collapse: collapse;
+        }
+        td, th
+        {
+            border: 1px solid lightgray;
+            padding: 3px 7px 2px 7px;
+        }
+        th
+        {
+            text-align: left;
+            padding-top: 5px;
+            padding-bottom: 4px;
+            background-color: Gray;
+            color: #ffffff;
+        }
+        td.stderr
+        {
+            color: Red;
+        }
+    </style>
+</head>
+<body>
+    <table id="logFilesTable">
+        <tr>
+            <th>
+                Computer name
+            </th>
+            <th>
+                PID
+            </th>
+            <th>
+                Type
+            </th>
+            <th>
+                Created
+            </th>
+            <th>
+                Link
+            </th>
+        </tr>
+    </table>
+    <p id="lastUpdated"></p>
+    <script type="text/javascript">
+
+        // this is replaced with actual data at runtime by code in interceptor.js
+        var logFiles = [{"file":"EC2AMAZ-GNGF7S4-1464-stderr-1742925870021.txt","computername":"EC2AMAZ-GNGF7S4","pid":1464,"type":"stderr","created":1742925870021},{"file":"EC2AMAZ-GNGF7S4-1464-stdout-1742925870016.txt","computername":"EC2AMAZ-GNGF7S4","pid":1464,"type":"stdout","created":1742925870016},{"file":"EC2AMAZ-GNGF7S4-200-stderr-1742926064565.txt","computername":"EC2AMAZ-GNGF7S4","pid":200,"type":"stderr","created":1742926064565},{"file":"EC2AMAZ-GNGF7S4-200-stdout-1742926064552.txt","computername":"EC2AMAZ-GNGF7S4","pid":200,"type":"stdout","created":1742926064552},{"file":"EC2AMAZ-GNGF7S4-3628-stderr-1742925308830.txt","computername":"EC2AMAZ-GNGF7S4","pid":3628,"type":"stderr","created":1742925308830},{"file":"EC2AMAZ-GNGF7S4-3628-stdout-1742925308821.txt","computername":"EC2AMAZ-GNGF7S4","pid":3628,"type":"stdout","created":1742925308821},{"file":"EC2AMAZ-GNGF7S4-5908-stderr-1742924470351.txt","computername":"EC2AMAZ-GNGF7S4","pid":5908,"type":"stderr","created":1742924470351},{"file":"EC2AMAZ-GNGF7S4-5908-stdout-1742924470350.txt","computername":"EC2AMAZ-GNGF7S4","pid":5908,"type":"stdout","created":1742924470350},{"file":"EC2AMAZ-GNGF7S4-5924-stderr-1742924943558.txt","computername":"EC2AMAZ-GNGF7S4","pid":5924,"type":"stderr","created":1742924943558},{"file":"EC2AMAZ-GNGF7S4-5924-stdout-1742924943556.txt","computername":"EC2AMAZ-GNGF7S4","pid":5924,"type":"stdout","created":1742924943556},{"file":"EC2AMAZ-GNGF7S4-6608-stderr-1742925618141.txt","computername":"EC2AMAZ-GNGF7S4","pid":6608,"type":"stderr","created":1742925618141},{"file":"EC2AMAZ-GNGF7S4-6608-stdout-1742925618140.txt","computername":"EC2AMAZ-GNGF7S4","pid":6608,"type":"stdout","created":1742925618140}];
+        var lastUpdated = 1742926075499;
+        var date = new Date();
+
+        date.setTime(lastUpdated);
+        document.getElementById('lastUpdated').innerHTML = 'Index was last updated ' + date;
+
+        logFiles.sort(function (a, b) {
+            return b.created - a.created;
+        });
+
+        var logFilesTable = document.getElementById("logFilesTable");
+        for (var i = 0; i < logFiles.length; i++) {
+            var logFile = logFiles[i];
+            date.setTime(logFile.created);
+            var row = logFilesTable.insertRow(-1);
+            var computerNameCell = row.insertCell(0);
+            var pidCell = row.insertCell(1);
+            var typeCell = row.insertCell(2);
+            var dateCell = row.insertCell(3);
+            var logCell = row.insertCell(4);
+            computerNameCell.innerHTML = logFile.computername;
+            pidCell.innerHTML = logFile.pid.toString();
+            typeCell.innerHTML = logFile.type;
+            typeCell.setAttribute('class', logFile.type);
+            dateCell.innerHTML = date.toString();
+            logCell.innerHTML = '<a href="' + logFile.file + '">log</a>';
+        };
+
+    </script>
+</body>
+</html>

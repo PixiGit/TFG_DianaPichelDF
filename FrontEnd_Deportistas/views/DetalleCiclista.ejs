@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es" id="miHtml" class="text-center">
+<head>
+    <meta charset="UTF-8">
+    <!-- ajusta contenido a la página, ancho dispositivo escala al 100%-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Diana Pichel">
+    <meta name="keywords" content="Ciclismo, Ciclocrós, Competiciones, Premios, ciclistas">
+    <meta name="description" content="Información de actualidad competiciones ciclocrós">
+    <title><%=ciclista[0].nombre %> - Proyecto Ciclista Norte de España</title>
+    <!--css-->
+    <!--
+    <link href="/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="/css/bootstrap-grid.css" rel="stylesheet" type="text/css">
+
+    <script src="/js/bootstrap.bundle.js"></script>
+    -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:wght@800&family=Roboto:wght@500&display=swap"
+        rel="stylesheet">
+</head>
+<body>
+   <!-- aviso legal -->
+    <%- include('./AvisoLegal') %>
+
+    <!-- politica accesibilidad -->
+    <%- include('./Accesibilidad') %>
+
+    <header>
+        <!--logo -->
+
+        <div>
+            <img class="img-fluid mt-4 mb-4" width="700" src="/imagenes/cne.png"
+                alt="Logo Proyecto Ciclista Norte de España">
+
+            <h1 class="d-none">Proyecto Ciclista Norte de España</h1>
+        </div>
+
+    </header>
+
+    <!-- MENÚ -->
+ 
+    <%- include('./MenuNavegacion') %>
+    <main>
+        <section>
+            <!-- info ciclista-->
+
+            <div class="container-fluid mb-0">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-12 mb-0 mt-5 d-flex justify-content-center">
+                        <div>
+                            <h2 class="text-danger display-4 fw-bold"><%=ciclista[0].nombre %></h2>
+                            <hr class="text-danger border-5">
+                            <ul class="list-unstyled text-start">
+                                <li><strong>Fecha de Nacimiento:</strong> <%= ciclista[0].fecha_nacimiento %> </li>
+                                <li><strong>Nacionalidad:</strong> <%= ciclista[0].nacionalidad %></li>
+                                <li><strong>Altura:</strong> <%= ciclista[0].altura %> cm</li>
+                                <li><strong>Peso:</strong> <%= ciclista[0].peso %> kg</li>
+                                <li><strong>Equipo:</strong> <%= ciclista[0].equipo %></li>
+                                <li><strong>Último Palmarés:</strong> <%= ciclista[0].ultimo_palmares %></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-12 mb-0 mt-5 d-flex justify-content-center">
+                        <img class="img-fluid ps-5" src="<%=rutaImagenesCiclistas%><%=ciclista[0].foto %>"
+                            alt="<% ciclista[0].nombre %>">
+                    </div>
+                </div>
+
+            </div>
+            <div>
+
+            </div>
+
+            <div>
+                <hr class="text-danger border-5">
+            </div>
+            <div class="container mb-0 bg-white justify-content-center">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 col-md-6 col-12 mb-0 mt-3 d-flex justify-content-center">
+                        <div class="bg-white text-danger fs-4 pb-1 pt-1 fw-bold">
+
+                            <p><strong>HISTORIAL CNE RIDER RANKING:</strong> <%= ciclista[0].historial %></p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-12 mb-0 mt-3 d-flex justify-content-center">
+                        <div class="bg-white text-white fs-4 pb-1 pt-1 fw-bold">
+                            <button class="btn btn-danger btn-lg" onclick="imprimirPagina()">Imprimir Página</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <hr class="text-danger border-5">
+            </div>
+        </section>
+        <section>
+
+        <!--patrocinadores-->
+        <div>
+            <h3 class="display-5 fw-bold mb-5 mt-5 text-center">Patrocinadores</h3>            
+            <div class="container mb-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-2 col-md-4 col-6 d-flex justify-content-center p-2">
+                        <a href="https://www.carrefour.es/" target="_blank" rel="noopener noreferrer">
+                        <img class="patrocinadores img-fluid" src="/imagenes/carrefour.png" alt="Carrefour">
+                        </a>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-6 d-flex justify-content-center p-2">   
+                        <a href="https://www.correos.es/" target="_blank" rel="noopener noreferrer">         
+                        <img class="patrocinadores  img-fluid" src="/imagenes/correos.png" alt="Correos">   
+                        </a>         
+                    </div>            
+                    <div class="col-lg-2 col-md-4 col-6 d-flex justify-content-center p-2">   
+                        <a href="http://www.elpozo.es/" target="_blank" rel="noopener noreferrer">         
+                        <img class="patrocinadores img-fluid" src="/imagenes/elpozo.png" alt="ElPozo">     
+                        </a>       
+                    </div>            
+                    <div class="col-lg-2 col-md-4 col-6 d-flex justify-content-center p-2">    
+                        <a href="https://eurovisionsport.com/.es/" target="_blank" rel="noopener noreferrer"> 
+                        <img class="patrocinadores img-fluid" src="/imagenes/eurovision.png" alt="Eurovisión"> 
+                        </a>           
+                    </div>            
+                    <div class="col-lg-2 col-md-4 col-6 d-flex justify-content-center p-2">  
+                        <a href="https://www.skoda.es/" target="_blank" rel="noopener noreferrer">          
+                        <img class="patrocinadores img-fluid" src="/imagenes/skoda.png" alt="Skoda"> 
+                        </a>           
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-6 d-flex justify-content-center p-2">    
+                        <a href="https://www.tissotwatches.com/es-es" target="_blank" rel="noopener noreferrer">        
+                        <img class="patrocinadores img-fluid" src="/imagenes/tissot.png" alt="Tissot">   
+                        </a>         
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </main>
+   
+    <!--Pie de la web-->
+    <%- include('./Footer') %>
+
+  <!-- cambio tamaño fuente botones A+/- -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        function aumentarLetra() {
+            var fontSize = parseInt(document.body.style.fontSize) || 16;
+            fontSize += 2;
+            document.body.style.fontSize = fontSize + "px";
+        }
+
+        function reducirLetra() {
+            var fontSize = parseInt(document.body.style.fontSize) || 16;
+            fontSize -= 2;
+            document.body.style.fontSize = fontSize + "px";
+        }
+
+        document.getElementById("ampliar-letra").addEventListener("click", function (event) {
+            event.preventDefault();
+            aumentarLetra(); 
+        });
+
+        document.getElementById("reducir-letra").addEventListener("click", function (event) {
+            event.preventDefault(); 
+            reducirLetra(); 
+        });
+    });
+  </script>
+
+    <!--fecha y hora-->
+
+    <script>
+        function mostrarFechaHora() {
+
+            var fechaHoraElemento = document.getElementById('fechaHora');
+
+            var fechaHora = new Date();
+
+            var formatoFechaHora = fechaHora.toLocaleString();
+
+            fechaHoraElemento.textContent = formatoFechaHora;
+        }
+
+        mostrarFechaHora();
+    </script>
+
+    <!--Imprimir Página-->
+    <script>
+        function imprimirPagina() {
+            window.print();
+        }
+    </script>
+    <!-- Inclusión de los scripts de Bootstrap y de code.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"></script>
+
+</body>
+
+</html>

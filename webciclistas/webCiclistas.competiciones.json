@@ -1,0 +1,71 @@
+[{
+  "_id": {
+    "$oid": "65ec9db5cbd2d4814dfd42cc"
+  },
+  "lugar": 76,
+  "fecha": {
+    "$date": "2024-09-02T22:00:00.000Z"
+  },
+  "enlace": false,
+  "resultado": "d",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65edeac85a41bddc974fe2f2"
+  },
+  "lugar": "Valladolid",
+  "fecha": {
+    "$date": "2024-03-21T00:00:00.000Z"
+  },
+  "enlace": "vvvvvvvvvvvvvvvvvv",
+  "resultado": "aaaaaaaaaaaaaaa"
+},
+{
+  "_id": {
+    "$oid": "65edf13463e0c9f7cb4ca6b2"
+  },
+  "lugar": "tttt",
+  "fecha": {
+    "$date": "2024-03-05T00:00:00.000Z"
+  },
+  "enlace": "ttert",
+  "resultado": "fsdfsdfsdfsadf"
+},
+{
+  "_id": {
+    "$oid": "65edffc398f38c8ee64b5be2"
+  },
+  "lugar": {
+    "$numberLong": "3333333333"
+  },
+  "fecha": {
+    "$date": "2024-03-05T00:00:00.000Z"
+  },
+  "enlace": "jfsjdflsdjfsakldf",
+  "resultado": "bbbbbbbbbbbbbbb"
+},
+{
+  "_id": {
+    "$oid": "65fca49c2a50362384e022fe"
+  },
+  "titulo": "titulo1",
+  "lugar": " Valencia",
+  "fecha": {
+    "$date": "2024-03-21T00:00:00.000Z"
+  },
+  "enlace": "https://dd.es",
+  "resultado": "resultado"
+},
+{
+  "_id": {
+    "$oid": "65fcabc7eabffa981449b63e"
+  },
+  "titulo": "Competición 1",
+  "lugar": "Valencia",
+  "fecha": {
+    "$date": "2024-03-22T00:00:00.000Z"
+  },
+  "enlace": "https://d.e.es",
+  "resultado": "xczc"
+}]

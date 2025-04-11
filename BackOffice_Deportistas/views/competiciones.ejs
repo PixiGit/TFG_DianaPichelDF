@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Listado competiciones</title>
+  <!-- Enlaces a los estilos CSS de Bootstrap y Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="/backoffice/public/css/style.css">
+  <style>
+    .container {
+      max-width: 90%;
+    }
+@media (max-width: 768px) {
+    table thead {
+      display: none; /* Oculta los encabezados */
+    }
+
+    table tbody, table tr, table td {
+      display: block;
+      width: 100%;
+    }
+
+    table tr {
+      margin-bottom: 1rem;
+      border: 1px solid #dee2e6;
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      padding: 1rem;
+    }
+
+    table td {
+      text-align: left;
+      padding-left: 50%;
+      position: relative;
+    }
+
+    table td::before {
+      content: attr(data-label);
+      position: absolute;
+      left: 1rem;
+      top: 0.5rem;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    td:last-child {
+      display: flex;
+      justify-content: start;
+      gap: 0.5rem;
+      padding-top: 1rem;
+    }
+  }
+  </style>
+</head>
+
+<body>
+  <!-- Inclusión del menú -->
+  <%- include('./menu') %>
+
+    <h2 class="container-fluid bg-dark text-white display-4 pb-5 pt-5 fw-bold text-center">Listado Oficial
+      Competiciones 2025</h2>
+    <div class="container-fluid m-0 p-0">
+      <div>
+
+
+        <!-- Botón para crear una nueva competición -->
+        <a id="btnNuevaCompeticion" type="button" class="btn btn-outline-success ">Nueva competicion</a>
+
+        <!-- Tabla para mostrar las competiciones existentes -->
+        <table id="competiciones" class="table table-striped table-hover text-dark table-bordered">
+          <thead>
+            <tr>
+              <!-- Columnas de la tabla -->
+              <th style="display: none;">ID</th>
+              <th class="fs-5 bg-success text-white text-center fw-bold">Título</th>
+              <th class="fs-5 bg-success text-white text-center fw-bold">Lugar</th>
+              <th class="fs-5 bg-success text-white text-center fw-bold">Fecha</th>
+              <th class="fs-5 bg-success text-white text-center fw-bold">Enlace</th>
+              <th class="fs-5 bg-success text-white text-center fw-bold">Resultado</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody>
+            <!-- Mostramos cada competición en una fila de la tabla -->
+            <% competiciones.forEach((competicion)=> { %>
+              <tr>
+                <!-- Datos de cada competición -->
+                <td style="display: none;">
+                  <%= competicion._id %>
+                </td>
+                <td>
+                  <%=competicion.titulo%>
+                </td>
+                <td>
+                  <%=competicion.lugar%>
+                </td>
+                <td>
+                  <%=competicion.fecha%>
+                </td>
+                <td>
+                  <%=competicion.enlace%>
+                </td>
+                <td>
+                  <%=competicion.resultado%>
+                </td>
+                <!-- Botones para editar y borrar cada competición -->
+                <td>
+                  <a type="button" class="btnEditarComp btn btn-outline-primary text-primary bi bi-pencil"></a>
+                  <a href="#" onclick="confirmDelete('<%= competicion._id %>')"
+                    class="btn btn-outline-danger bi bi-trash"></a>
+
+                </td>
+              </tr>
+
+              <% }) %>
+          </tbody>
+
+        </table>
+
+
+
+      </div>
+
+
+    </div>
+
+
+
+    <!-- Modal para editar una competición -->
+
+    <div id="modalCompeticion" class="modal fade modal-red" tabindex="-1" aria-labelledby="modalCompeticion"
+      aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header bg-success">
+            <!-- Título del modal -->
+            <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">Editar competición</h1>
+            <!-- Botón de cierre del modal -->
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- Formulario para editar la competición -->
+            <form action="/backoffice/competiciones/editar" method="POST" class="needs-validation" novalidate id="formEditar">
+              <!-- Campo oculto para almacenar el ID de la competición -->
+              <input id="id_editar" name="id_editar" type="text" hidden>
+
+              <!-- Campos de edición -->
+
+
+              <div class="mb-3">
+                <label for="titulo_editar" class="col-form-label">Título</label>
+                <input id="titulo_editar" name="titulo_editar" type="text" class="form-control" required>
+                <div class="invalid-feedback">Por favor, completa este campo.</div>
+              </div>
+              <div class="mb-3">
+                <label for="lugar_editar" class="col-form-label">Lugar</label>
+                <input id="lugar_editar" name="lugar_editar" type="text" class="form-control" required>
+                <div class="invalid-feedback">Por favor, completa este campo.</div>
+              </div>
+              <div class="mb-3">
+                <label for="fecha_editar" class="col-form-label">Fecha</label>
+                <input id="fecha_editar" name="fecha_editar" type="date" class="form-control" required>
+                <div class="invalid-feedback">Por favor, completa este campo.</div>
+              </div>
+              <div class="mb-3">
+                <label for="enlace_editar" class="col-form-label">Enlace</label>
+                <input id="enlace_editar" name="enlace_editar" type="text" class="form-control" required
+                  pattern="https?://.+">
+                <div class="invalid-feedback">Por favor, introduce una URL válida.</div>
+              </div>
+              <div class="mb-3">
+                <label for="resultado_editar" class="col-form-label">Resultado</label>
+                <input id="resultado_editar" name="resultado_editar" type="text" class="form-control" required>
+                <div class="invalid-feedback">Por favor, completa este campo.</div>
+              </div>
+              <!-- Mensajes de error -->
+
+              <div class="modal-footer">
+
+                <button type="submit" class="btn btn-success">Actualizar</button>
+
+
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal para crear una competición -->
+
+    <div id="modalNuevaCompeticion" class="modal fade-red" tabindex="-1" aria-labelledby="modalNuevaCompeticion"
+      aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header bg-success">
+            <!-- Título del modal -->
+            <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">Crear nueva competición</h1>
+            <!-- Botón de cierre del modal -->
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- Formulario para crear una nueva competición -->
+            <form action="/backoffice/competiciones/crear" method="POST" class="needs-validation" novalidate id="formCrear">
+
+              <!-- Campos de creación -->
+
+
+
+              <div class="mb-3">
+                <label for="titulo" class="col-form-label">Título</label>
+                <input id="titulo" name="titulo" type="text" class="form-control" required>
+                <div class="invalid-feedback">Por favor, completa este campo.</div>
+              </div>
+
+              <div class="mb-3">
+                <label for="lugar" class="col-form-label">Lugar</label>
+                <input id="lugar" name="lugar" type="text" class="form-control" required>
+                <div class="invalid-feedback">Por favor, completa este campo.</div>
+              </div>
+
+              <div class="mb-3">
+                <label for="fecha" class="col-form-label">Fecha</label>
+                <input id="fecha" name="fecha" type="date" class="form-control" required>
+                <div class="invalid-feedback">Por favor, completa este campo.</div>
+              </div>
+
+              <div class="mb-3">
+                <label for="enlace" class="col-form-label">Enlace</label>
+                <input id="enlace" name="enlace" type="text" class="form-control" required pattern="https?://.+">
+                <div class="invalid-feedback">Por favor, introduce una URL válida.</div>
+              </div>
+
+              <div class="mb-3">
+                <label for="resultado" class="col-form-label">Resultado</label>
+                <input id="resultado" name="resultado" type="text" class="form-control" required>
+                <div class="invalid-feedback">Por favor, completa este campo.</div>
+              </div>
+
+              <div class="modal-footer">
+                <!-- Botón para guardar la nueva competición -->
+                <button type="submit" class="btn btn-success">Guardar</button>
+
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <!-- Script para crear  de competiciones -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const formCrear = document.querySelector('#formCrear');
+
+        formCrear.addEventListener('submit', (event) => {
+          console.log('Submit de crear competición');
+          if (!formCrear.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          formCrear.classList.add('was-validated');
+        });
+
+      });
+    </script>
+
+    <!-- Script para editar de competiciones -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const formEditar = document.querySelector('#formEditar');
+
+        formEditar.addEventListener('submit', (event) => {
+          console.log('Submit de crear competición');
+          if (!formEditar.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          formEditar.classList.add('was-validated');
+        });
+
+      });
+    </script>
+
+    <!-- Script para confirmar la eliminación de competiciones -->
+    <script>
+      function confirmDelete(competicionId) {
+        console.log('Eliminando competición con ID:', competicionId);
+
+        if (confirm('¿Estás seguro de que deseas eliminar esta competición?')) {
+          // Enviar solicitud DELETE al servidor para eliminar la competición
+          fetch(`/competiciones/borrar/${competicionId}`, {
+            method: 'DELETE'
+          })
+            .then(response => {
+              if (!response.ok) {
+                throw new Error('No se pudo eliminar la competición');
+              }
+              // Redireccionar a la página de competiciones después de la eliminación
+              window.location.href = '/backoffice/competiciones';
+            })
+            .catch(error => {
+              console.error('Error al eliminar la competición:', error);
+            });
+        }
+      }
+    </script>
+
+
+
+
+
+    <!-- Inclusión de los scripts de Bootstrap y de code.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"></script>
+    <script src="/backoffice/public/js/eventos_competiciones.js"></script>
+
+</body>
+
+<!-- Inclusión del pie de página -->
+<footer>
+  <%- include('./footer') %>
+</footer>
+
+
+</html>

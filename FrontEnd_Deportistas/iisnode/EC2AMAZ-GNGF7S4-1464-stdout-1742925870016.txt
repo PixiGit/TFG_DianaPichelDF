@@ -1,0 +1,2 @@
+Servidor frontend corriendo en http://127.0.0.1:\\.\pipe\190e4ef8-c478-4c28-828a-b435be4bbfc7
+Conexión exitosa a la base de datos MongoDB

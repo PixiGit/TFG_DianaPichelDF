@@ -1,0 +1,14 @@
+{
+    "name": "administrator/front-end_deportistas",
+    "autoload": {
+        "psr-4": {
+            "Administrator\\FrontEndDeportistas\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Diana Pichel"
+        }
+    ],
+    "require": {}
+}

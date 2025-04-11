@@ -1,0 +1,77 @@
+[{
+  "_id": {
+    "$oid": "65fe9a0cdf47c072aa2f9eb9"
+  },
+  "fechapub": {
+    "$date": "2024-02-03T00:00:00.000Z"
+  },
+  "titulo": "Lucía González, 22ª en el Campeonato del Mundo de Ciclocross de Tabor",
+  "cuerpo": "La Selección Española ha completado hoy su primera jornada de competición en el Campeonato del Mundo de Ciclocross que se está celebrando en la ciudad checa de Tabor con el 22º puesto de Lucía González en la prueba élite femenina, el 21º del sub23 Miguel Rodríguez y el 24º de la júnior Lorena Patiño como resultados más destacados.",
+  "foto": "blog_3febrero.jpg"
+},
+{
+  "_id": {
+    "$oid": "65fe9e12df47c072aa2f9ebc"
+  },
+  "fechapub": {
+    "$date": "2024-01-30T00:00:00.000Z"
+  },
+  "titulo": "Convocatoria de la Selección Española para el Campeonato del Mundo de Tabor",
+  "cuerpo": "El Campeonato del Mundo de Ciclocross, que en este 2024 se celebrará en el afamado circuito checo de Tabor, servirá como es tradición de cierre a la temporada de la disciplina ciclista invernal por excelencia. Este próximo fin de semana, del 2 al 4 de febrero, se pondrán en  juegos los maillots arcoíris de las categorías juniors, sub23 y élite en un trazado con mucha historia, donde se espera lluvia y que ya ha acogido la disputa del Mundial en 2001, 2010 y 2015.",
+  "foto": "blog_30enero.jpg"
+},
+{
+  "_id": {
+    "$oid": "65fe9ea0df47c072aa2f9ebf"
+  },
+  "fechapub": {
+    "$date": "2024-01-22T00:00:00.000Z"
+  },
+  "titulo": "Felipe Orts brilla en la Copa del Mundo de CX de Benidorm con un 8º puesto",
+  "cuerpo": "Tras su memorable estreno en 2023, la Copa del Mundo de Ciclocross UCI – Benidorm Costa Blanca se superó este 21 de enero con una segunda edición apoteósica. Más de 16.000 espectadores pudieron disfrutar de una jornada ideal, con una meteorología idílica y unas carreras espectaculares. Wout van Aert y Fem van Empel (ambos de Visma Lease a Bike) triunfaron bajo el sol alicantino. El belga, en la prueba Elite masculina, aprovechando la mala suerte de su máximo y eterno rival Mathieu Van der Poel, quien no pudo renovar su victoria de la pasada campaña. Sí que lo consiguió la neerlandesa, de nuevo por delante de  Puck Pieterse.",
+  "foto": "blog_22enero.jpg"
+},
+{
+  "_id": {
+    "$oid": "65fe9f17df47c072aa2f9ec2"
+  },
+  "fechapub": {
+    "$date": "2024-01-19T00:00:00.000Z"
+  },
+  "titulo": "Lluvia de estrellas en Benidorm en su segunda Copa del Mundo de Ciclocross",
+  "cuerpo": "La ciudad alicantina de Benidorm acoge este año de nuevo una cita crucial para la resolución de la Copa del Mundo de Ciclocross, la penúltima prueba, que contará con las mayores estrellas de la especialidad como Mahtieu Van der Poen, Wout Van Aert, Thomas Pidcock o la gran baza nacional, Felipe Orts, además de otros representantes como la reciente campeona de España Lucía González.",
+  "foto": "blog_19enero.jpg"
+},
+{
+  "_id": {
+    "$oid": "6609d1af1fc2dc8ca9159413"
+  },
+  "fechapub": {
+    "$date": "2024-03-30T00:00:00.000Z"
+  },
+  "titulo": "Titulo 2",
+  "cuerpo": "3333",
+  "foto": "Colegio-Nacional-Opticos-Optometristas.png"
+},
+{
+  "_id": {
+    "$oid": "6609d4031fc2dc8ca9159424"
+  },
+  "fechapub": {
+    "$date": "2024-04-01T00:00:00.000Z"
+  },
+  "titulo": "Titulo 2333",
+  "cuerpo": "3333",
+  "foto": "Consejo-General-Colegios-Opticos-Optometristas.gif"
+},
+{
+  "_id": {
+    "$oid": "6609d49e1fc2dc8ca9159429"
+  },
+  "fechapub": {
+    "$date": "2024-03-27T00:00:00.000Z"
+  },
+  "titulo": "ssss",
+  "cuerpo": "ddd",
+  "foto": "th.jpg"
+}]

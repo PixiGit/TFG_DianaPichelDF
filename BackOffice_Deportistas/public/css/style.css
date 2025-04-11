@@ -1,0 +1,13 @@
+.btn-guardar{
+  width: 100%;
+}
+
+.btn-guardar:hover,.btn-guardar:active{
+  color: aliceblue;
+  background-color: rgb(4, 61, 61);
+  border-color:rgb(4, 61, 61)
+}
+
+.btn-guardar:focus{
+  box-shadow: 0 0 0 3px;
+}

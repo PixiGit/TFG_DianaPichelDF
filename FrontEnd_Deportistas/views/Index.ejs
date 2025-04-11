@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es" id="miHtml" class="text-center">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- ajusta contenido a la página, ancho dispositivo escala al 100% -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Diana Pichel">
+  <meta name="keywords" content="Ciclismo, Ciclocrós, Competiciones, Premios, ciclistas">
+  <meta name="description" content="Información de actualidad competiciones ciclocrós">
+  <title>Proyecto Ciclista Norte de España</title>
+  <!--css-->
+  <!--
+  <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="css/bootstrap-grid.css" rel="stylesheet" type="text/css">
+
+  <script src="js/bootstrap.bundle.js"></script>
+  -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:wght@800&family=Roboto:wght@500&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <!-- aviso legal -->
+  <%- include('./AvisoLegal') %>
+
+  <!-- politica Accesibilidad -->
+  <%- include('./Accesibilidad') %>
+
+  <header>
+    <!-- logo -->
+
+    <div>
+      <img class="img-fluid mt-4 mb-4" width="700" src="imagenes/cne.png"
+        alt="Logo Proyecto Ciclista Norte de España">
+
+      <h1 class="d-none">Proyecto Ciclista Norte de España</h1>
+    </div>
+
+  </header>
+
+  <!--menu -->
+  <%- include('./MenuNavegacion') %>
+
+  <main>
+
+    <section>
+      <h2 class="d-none">Ciclocrós 2025</h2>
+
+      <!-- Carrousel imágenes (con enlace)-->
+
+      <div id="carouselExampleIndicators" class="carousel slide">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <a href="Competiciones.html"><img src="imagenes/portada_ciclocros.png" class="d-block w-100"
+                alt="Competiciones 2025"></a>
+          </div>
+          <div class="carousel-item">
+            <a href="Ciclistas.html"><img src="imagenes/Carousel2.png" class="d-block w-100"
+                alt="Competiciones 2025"></a>
+          </div>
+          <div class="carousel-item">
+            <a href="Contacto.html"><img src="imagenes/Carousel3.png" class="d-block w-100"
+                alt="Competiciones 2025"></a>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+    </section>
+
+    <div>
+
+      <!-- cita con una frase-->
+
+      <div class="container-fluid bg-dark text-white display-4 pb-5 pt-5 fw-bold fst-italic">
+        <blockquote cite="https://actimax.com.co/blog/30-imagenes-de-ciclismo-con-frases-inspiradoras-y-motivacionales/">
+          <p>EL VIENTO EN CONTRA, TE HACE MÁS FUERTE</p>
+        </blockquote>
+
+      </div>
+
+
+    </div>
+
+    <!-- Tabla de selección-->
+
+    <article>
+      <h2 class="display-5 fw-bold mb-5 mt-5">Descubre el mundo del ciclocrós</h2>
+      <!-- Fila 2: Texto -->
+      <div class="container-fluid mb-5">
+        <div class="row">
+          <div class="col-lg-4 col-md-6 col-12">
+            <div>
+
+              <div>
+                <img class="img-fluid mb-4" width="500" src="imagenes/texto1.png" alt="Ciclistas">
+                <p>Bienvenido a <abbr title="Proyecto Ciclista Norte de España">CNE</abbr>, lugar de encuentro donde podrás estar informado sobre todos los   ciclistas y competiciones que tengan lugar durante toda la temporada. </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-12">
+            <div>
+              <img class="img-fluid mb-4" width="500" src="imagenes/texto2.png" alt="Competiciones">
+              <p>¡No te pierdas las competiciones de esta temporada!
+                Conoce las distintas etapas que discurren en las rutas más bellas.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-12">
+            <div>
+              <img class="img-fluid mb-4" width="500" src="imagenes/texto3.png" alt="Ranking">
+              <p>Conoce las puntuaciones obtenidas por cada uno de los participantes en las distintas categorías.
+              </p>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </article>
+
+
+    <section>
+      <h2 style="display: none;">Últimas noticias</h2>
+      <!-- Blog-->
+      <article class="container-fluid bg-dark text-white pb-5">
+        <h2 class="display-5 fw-bold pb-4 pt-4">Últimas noticias</h2>
+        <div class="container-fluid">
+          <% for(let i = 0; i < noticias.length; i += 3) { %>
+            <div class="row">
+              <% for(let j = i; j < i + 3 && j < noticias.length; j++) { %>
+                <div class="col-lg-4 col-md-6 col-12">
+                  <div>
+                    <img src="<%=rutaImagenesNoticias + '/' + noticias[j].foto %>" width="400" alt="<%= noticias[j].titulo%>">
+                    <h5 class="fs-2 fw-bold mt-3"><%= noticias[j].titulo%></h5>
+                    <p class="fs-5 fw-bold mt-3 bg-danger pt-1 pb-1"><%= noticias[j].fechapub%></p>
+                    <p><%= noticias[j].cuerpo%></p>
+                  </div>
+                </div>
+              <% } %>
+            </div> <!-- Cierre de la fila aquí -->
+          <% } %>
+        </div>
+      </article>
+    </section>
+    
+    <section>
+      <!-- patrocinadores-->
+      <div>
+        <h3 class="display-5 fw-bold mb-5 mt-5 text-center">Patrocinadores</h3>
+
+        <div class="container mb-5">
+          <div class="row justify-content-center">
+            <div class="col-lg-2 col-md-4 col-6 d-flex justify-content-center p-2">
+              <a href="https://www.carrefour.es/" target="_blank" rel="noopener noreferrer">
+                <img class="patrocinadores img-fluid" src="imagenes/carrefour.png" alt="Carrefour">
+              </a>
+             
+            </div>
+            <div class="col-lg-2 col-md-4 col-6 d-flex justify-content-center p-2">
+              <a href="https://www.correos.es/" target="_blank" rel="noopener noreferrer">
+              <img class="patrocinadores img-fluid" src="imagenes/correos.png" alt="Correos">
+            </a>
+            </div>
+
+            <div class="col-lg-2 col-md-4 col-6 d-flex justify-content-center p-2">
+            <a href="http://www.elpozo.es/" target="_blank" rel="noopener noreferrer">
+              <img class="patrocinadores img-fluid" src="imagenes/elpozo.png" alt="ElPozo">
+            </a>
+            </div>
+
+            <div class="col-lg-2 col-md-4 col-6 d-flex justify-content-center p-2">
+              <a href="https://eurovisionsport.com/.es/" target="_blank" rel="noopener noreferrer">
+              <img class="patrocinadores img-fluid" src="imagenes/eurovision.png" alt="Eurovisión">
+            </a>
+            </div>
+
+            <div class="col-lg-2 col-md-4 col-6 d-flex justify-content-center p-2">
+              <a href="https://www.skoda.es/" target="_blank" rel="noopener noreferrer">
+                <img class="patrocinadores img-fluid" src="imagenes/skoda.png" alt="Skoda">
+              </a>
+            </div>
+            <div class="col-lg-2 col-md-4 col-6 d-flex justify-content-center p-2">
+              <a href="https://www.tissotwatches.com/es-es" target="_blank" rel="noopener noreferrer">
+                <img class="patrocinadores img-fluid" src="imagenes/tissot.png" alt="Tissot">
+              </a> 
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+   <!--footer-->
+  <%- include('./Footer') %>
+
+  <!--SECCIÓN DE SCRIPTS-->
+
+  <!--Scripts Carousel-->
+  <script>
+
+    const carousel = new bootstrap.Carousel("#carouselExampleIndicators", {
+      interval: 2000,
+      touch: false,
+      ride: "carousel"
+    })
+
+  </script>
+
+
+  <!-- cambio tamaño fuente botones A+/- -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        function aumentarLetra() {
+            var fontSize = parseInt(document.body.style.fontSize) || 16;
+            fontSize += 2;
+            document.body.style.fontSize = fontSize + "px";
+        }
+
+        function reducirLetra() {
+            var fontSize = parseInt(document.body.style.fontSize) || 16;
+            fontSize -= 2;
+            document.body.style.fontSize = fontSize + "px";
+        }
+
+        document.getElementById("ampliar-letra").addEventListener("click", function (event) {
+            event.preventDefault();
+            aumentarLetra(); 
+        });
+
+        document.getElementById("reducir-letra").addEventListener("click", function (event) {
+            event.preventDefault(); 
+            reducirLetra(); 
+        });
+    });
+  </script>
+
+  <!--fecha y hora-->
+
+  <script>
+    function mostrarFechaHora() {
+
+      var fechaHoraElemento = document.getElementById('fechaHora');
+
+      var fechaHora = new Date();
+
+      var formatoFechaHora = fechaHora.toLocaleString();
+
+      fechaHoraElemento.textContent = formatoFechaHora;
+    }
+
+    mostrarFechaHora();
+  </script>
+  <!-- Inclusión de los scripts de Bootstrap y de code.js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+  crossorigin="anonymous"></script>
+</body>
+
+</html>

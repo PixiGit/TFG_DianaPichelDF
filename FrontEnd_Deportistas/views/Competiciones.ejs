@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es" id="miHtml" class="text-center">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- ajusta contenido a la página,ancho dispositivo escala al 100% -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Diana Pichel">
+  <meta name="keywords" content="Ciclismo, Ciclocrós, Competiciones, Premios">
+  <meta name="description" content="Información de actualidad competiciones ciclocrós">
+  <title>Ciclistas del Proyecto Ciclista Norte de España</title>
+  <!--estilo css-->
+  <!--
+  <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="css/bootstrap-grid.css" rel="stylesheet" type="text/css">
+
+  <script src="js/bootstrap.bundle.js"></script>
+  -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:wght@800&family=Roboto:wght@500&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <!-- aviso legal -->
+  <%- include('./AvisoLegal') %>
+
+  <!-- política accesibilidad -->
+  <%- include('./Accesibilidad') %>
+
+  <header>
+
+    <!--logo -->
+    <div>
+      <img class="img-fluid mt-4 mb-4" width="700" src="imagenes/cne.png"
+        alt="Proyecto Ciclista Norte de España">
+
+      <h1 class="d-none">Proyecto Ciclista Norte de España</h1>
+    </div>
+
+  </header>
+
+  <!-- MENÚ -->
+  <%- include('./MenuNavegacion') %>
+
+  <main>
+    <section>
+      <h2 class="container-fluid bg-dark text-white display-4 pb-5 pt-5 fw-bold text-center">Listado Competiciones 2025</h2>
+      <!-- Competiciones Info-->
+      <div class="container mb-4 mt-4 text-start">
+
+        <p>Un año más comienza las competiciones de Ciclocrós. Este año 2025 las competiciones contarán con los mejores deportistas del ámbito nacional
+e internacional. Comenzarán en A Coruña y terminarán en los Pirineos, siendo cada ubicación una aventura donde se comprobará las habilidades técnicas y la 
+tenacidad de todos los deportistas</p>
+
+        <p>Cada giro, cada obstáculo, es una oportunidad para que estos atletas demuestren su destreza y valentía en el
+          terreno desafiante del ciclocrós. En esta apasionante travesía, cada competición es más que una carrera; es un
+          capítulo en la historia de estos ciclistas intrépidos que buscan la gloria sobre sus bicicletas.</p>
+
+        <p>No te pierdas ninguna de las competiciones que discurrirán en diferentes parajes de la naturaleza del norte de España. ¡sigue cada minuto y 
+no te pierdas nada!</p>
+      </div>
+
+      <div class="container-fluid m-0 p-0">
+        <div class="table-responsive">
+        <table class="table table-striped table-hover text-dark table-bordered">
+          <!--Fila 1: cabecera-->
+          <thead>
+            <tr>
+
+              <td class="display-6 bg-danger text-white text-center fw-bold">
+                Título Competición
+              </td>
+              <td class="display-6 bg-danger text-white text-center fw-bold">Ubicación</td>
+              <td class="display-6 bg-danger text-white text-center fw-bold">
+                Fecha
+              </td>
+              <td class="display-6 bg-danger text-white text-center fw-bold">
+                Enlace Oficial
+              </td>
+              <td class="display-6 bg-danger text-white text-center fw-bold">
+                Resultado Ganador
+              </td>
+
+            </tr>
+          </thead>
+          <tbody>
+          <!--Fila 2 y demás: Información-->
+          <% competiciones.forEach((competicion) => { %>
+            <tr>
+              <td>
+                <p><%=competicion.titulo %></p>
+              </td>
+              <td>
+                <p><%=competicion.lugar %></p>
+              </td>
+              <td>
+                <p><%=competicion.fecha %></p>
+              </td>
+              <td> <a class="link-opacity-10-hover link-underline-opacity-25 link-danger" target="_blank"
+                  href="<%=competicion.enlace%>">Más información </a> </td>
+              <td>
+                <p><%=competicion.resultado %></p>
+              </td>
+            </tr>
+          <%  }) %>  
+        </tbody>
+        </table>
+      </div>
+    </div>
+    </section>
+    <section>
+
+       <!-- patrocinadores-->
+      <div>
+        <h3 class="display-5 fw-bold mb-5 mt-5 text-center">Patrocinadores</h3>
+
+        <div class="container mb-5">
+          <div class="row justify-content-center">
+            <div class="col-lg-2 col-md-4 col-6 d-flex justify-content-center p-2">
+              <a href="https://www.carrefour.es/" target="_blank" rel="noopener noreferrer">
+                <img class="patrocinadores img-fluid" src="imagenes/carrefour.png" alt="Carrefour">
+              </a>
+             
+            </div>
+            <div class="col-lg-2 col-md-4 col-6 d-flex justify-content-center p-2">
+              <a href="https://www.correos.es/" target="_blank" rel="noopener noreferrer">
+              <img class="patrocinadores img-fluid" src="imagenes/correos.png" alt="Correos">
+            </a>
+            </div>
+
+            <div class="col-lg-2 col-md-4 col-6 d-flex justify-content-center p-2">
+            <a href="http://www.elpozo.es/" target="_blank" rel="noopener noreferrer">
+              <img class="patrocinadores img-fluid" src="imagenes/elpozo.png" alt="ElPozo">
+            </a>
+            </div>
+
+            <div class="col-lg-2 col-md-4 col-6 d-flex justify-content-center p-2">
+              <a href="https://eurovisionsport.com/.es/" target="_blank" rel="noopener noreferrer">
+              <img class="patrocinadores img-fluid" src="imagenes/eurovision.png" alt="Eurovisión">
+            </a>
+            </div>
+
+            <div class="col-lg-2 col-md-4 col-6 d-flex justify-content-center p-2">
+              <a href="https://www.skoda.es/" target="_blank" rel="noopener noreferrer">
+                <img class="patrocinadores img-fluid" src="imagenes/skoda.png" alt="Skoda">
+              </a>
+            </div>
+            <div class="col-lg-2 col-md-4 col-6 d-flex justify-content-center p-2">
+              <a href="https://www.tissotwatches.com/es-es" target="_blank" rel="noopener noreferrer">
+                <img class="patrocinadores img-fluid" src="imagenes/tissot.png" alt="Tissot">
+              </a> 
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+ 
+  <!--Pie de la web-->
+  <%- include('./Footer') %>
+
+  <!-- cambio tamaño fuente botones A+/- -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        function aumentarLetra() {
+            var fontSize = parseInt(document.body.style.fontSize) || 16;
+            fontSize += 2;
+            document.body.style.fontSize = fontSize + "px";
+        }
+
+        function reducirLetra() {
+            var fontSize = parseInt(document.body.style.fontSize) || 16;
+            fontSize -= 2;
+            document.body.style.fontSize = fontSize + "px";
+        }
+
+        document.getElementById("ampliar-letra").addEventListener("click", function (event) {
+            event.preventDefault();
+            aumentarLetra(); 
+        });
+
+        document.getElementById("reducir-letra").addEventListener("click", function (event) {
+            event.preventDefault(); 
+            reducirLetra(); 
+        });
+    });
+  </script>
+
+  <!--fecha y hora-->
+
+  <script>
+    function mostrarFechaHora() {
+
+      var fechaHoraElemento = document.getElementById('fechaHora');
+
+      var fechaHora = new Date();
+
+      var formatoFechaHora = fechaHora.toLocaleString();
+
+      fechaHoraElemento.textContent = formatoFechaHora;
+    }
+
+    mostrarFechaHora();
+  </script>
+  <!-- Inclusión de los scripts de Bootstrap y de code.js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+  crossorigin="anonymous"></script>
+</body>
+
+</html>

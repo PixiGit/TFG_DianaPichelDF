@@ -1,0 +1,139 @@
+Servidor frontend corriendo en http://127.0.0.1:\\.\pipe\fdc31c09-abb5-4e7d-8358-8766c9ca3525
+Conexión exitosa a la base de datos MongoDB
+65fc48c4b1b3077ad770c1bc
+[
+  {
+    _id: new ObjectId('65fc48c4b1b3077ad770c1bc'),
+    nombre: 'Mario Junquera San Millán',
+    fecha_nacimiento: 1997-01-28T00:00:00.000Z,
+    foto: 'mario-junquera-san-millan.png',
+    nacionalidad: 'Española',
+    altura: 180,
+    equipo: 'Unicaja Banco Guijón',
+    historial: 'Posición Actual 39 | Posición la temporada pasada: 76 | Puntos Totales: 530',
+    peso: 75,
+    ultimo_palmares: '3º Campeonato de España Ciclocross Amurrio 2024 - Élite Masculino (CN)'
+  }
+]
+[
+  {
+    _id: new ObjectId('65fc48c4b1b3077ad770c1bc'),
+    nombre: 'Mario Junquera San Millán',
+    fecha_nacimiento: 1997-01-28T00:00:00.000Z,
+    foto: 'mario-junquera-san-millan.png',
+    nacionalidad: 'Española',
+    altura: 180,
+    equipo: 'Unicaja Banco Guijón',
+    historial: 'Posición Actual 39 | Posición la temporada pasada: 76 | Puntos Totales: 530',
+    peso: 75,
+    ultimo_palmares: '3º Campeonato de España Ciclocross Amurrio 2024 - Élite Masculino (CN)'
+  },
+  {
+    _id: new ObjectId('65fc4c5bb1b3077ad770c1c3'),
+    nombre: 'Lucía González Blanco',
+    fecha_nacimiento: 1990-07-09T00:00:00.000Z,
+    foto: 'lucia-gonzalez-blanco.jpg',
+    nacionalidad: 'Española',
+    altura: 167,
+    equipo: 'XNESTA - MMR CX TEAM',
+    historial: 'Posición Actual 22 | Posición la temporada pasada: 14 | Puntos Totales: 863',
+    peso: 65,
+    ultimo_palmares: '1ª Campeonato de España Ciclocross Amurrio 2024 - Élite Femenina (CN)'
+  },
+  {
+    _id: new ObjectId('65fc4ccfb1b3077ad770c1c6'),
+    nombre: 'Gonzalo Iguanzo Macho',
+    fecha_nacimiento: 2001-03-22T00:00:00.000Z,
+    foto: 'gonzalo-inguanzo-macho.png',
+    nacionalidad: 'Española',
+    altura: 176,
+    equipo: 'GD Supermercado Froiz',
+    historial: 'Posición Actual 65 | Posición la temporada pasada: 62 | Puntos Totales: 268',
+    peso: 68,
+    ultimo_palmares: '2º Campeonato de España Ciclocross Amurrio 2024 - Élite Masculino (CN)'
+  },
+  {
+    _id: new ObjectId('65fc4d49b1b3077ad770c1c9'),
+    nombre: 'Sofía Rodríguez Revert',
+    fecha_nacimiento: 1999-10-21T00:00:00.000Z,
+    foto: 'sofia-rodriguez-revert.jpg',
+    nacionalidad: 'Española',
+    altura: 170,
+    equipo: 'NESTA - MMR CX TEAM',
+    historial: '2ª Campeonato de España Ciclocross Amurrio 2024 - Élite Femenina (CN)',
+    peso: 61,
+    ultimo_palmares: 'Posición Actual 33 | Posición la temporada pasada: 33 | Puntos Totales: 678'
+  },
+  {
+    _id: new ObjectId('65fc4e03b1b3077ad770c1cc'),
+    nombre: 'Felipe Orts Lloret',
+    fecha_nacimiento: 1995-04-01T00:00:00.000Z,
+    foto: 'felipe-orts-lloret.png',
+    nacionalidad: 'Española',
+    altura: 179,
+    equipo: 'CC Aitana',
+    historial: 'Posición Actual 9 | Posición la temporada pasada: 11 | Puntos Totales: 1376',
+    peso: 70,
+    ultimo_palmares: '1º Campeonato de España Ciclocross Amurrio 2024 - Élite Masculino (CN)'
+  },
+  {
+    _id: new ObjectId('65fc4e63b1b3077ad770c1cf'),
+    nombre: 'Irene Trabazo Bragado',
+    fecha_nacimiento: 1998-10-26T00:00:00.000Z,
+    foto: 'irene.png',
+    nacionalidad: 'Española',
+    altura: 168,
+    equipo: 'XSM-SANTOME DE PIÑEIRO',
+    historial: 'Posición Actual 58 | Posición la temporada pasada: 81 | Puntos Totales: 345',
+    peso: 68,
+    ultimo_palmares: '3ª Campeonato de España Ciclocross Amurrio 2024 - Élite Femenina (CN)'
+  },
+  {
+    _id: new ObjectId('65fc5165b1b3077ad770c1d7'),
+    nombre: 'Raúl Mira Bonastre',
+    fecha_nacimiento: 2004-01-10T00:00:00.000Z,
+    foto: 'raul-mira-bonastre.png',
+    nacionalidad: 'Española',
+    altura: 176,
+    equipo: 'ESSAX - GRUPO ARRFRAN',
+    historial: 'Posición Actual 85 | Posición la temporada pasada: 389 | Puntos Totales: 194',
+    peso: 72,
+    ultimo_palmares: '1º Campeonato de España Ciclocross Amurrio 2024 - U23 Masculino (CN)'
+  },
+  {
+    _id: new ObjectId('65fc51ddb1b3077ad770c1da'),
+    nombre: 'Sara Bonillo Talens',
+    fecha_nacimiento: 2001-02-02T00:00:00.000Z,
+    foto: 'sara-bonillo-talens.png',
+    nacionalidad: 'Española',
+    altura: 174,
+    equipo: 'BIKERY C.D.E.',
+    historial: 'Posición Actual 197 | Posición la temporada pasada: 127 | Puntos Totales: 75',
+    peso: 65,
+    ultimo_palmares: '11ª Campeonato de España Ciclocross Amurrio 2024 - Élite Femenina (CN)'
+  },
+  {
+    _id: new ObjectId('65fe8ecc48d0c75d50c294a2'),
+    nombre: '2222wwwww',
+    fecha_nacimiento: 2024-03-30T00:00:00.000Z,
+    foto: 'eli-iserbyt.png',
+    nacionalidad: 'canada',
+    altura: 160,
+    equipo: 'aaaaa2222',
+    historial: '2222',
+    peso: 60,
+    ultimo_palmares: '2222'
+  },
+  {
+    _id: new ObjectId('65ff44d552bdf9642855b29e'),
+    nombre: 'borra',
+    fecha_nacimiento: 2024-03-29T00:00:00.000Z,
+    foto: 'lucia-gonzalez-blanco.jpg',
+    nacionalidad: 'rusia',
+    altura: 160,
+    equipo: 'borra',
+    historial: '11',
+    peso: 60,
+    ultimo_palmares: '1'
+  }
+]

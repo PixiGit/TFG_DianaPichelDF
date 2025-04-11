@@ -1,0 +1,32 @@
+Servidor frontend corriendo en http://127.0.0.1:\\.\pipe\1c502f5e-c539-4c42-b3eb-3dbbfe39a3f6
+65fc4c5bb1b3077ad770c1c3
+Conexión exitosa a la base de datos MongoDB
+[
+  {
+    _id: new ObjectId('65fc4c5bb1b3077ad770c1c3'),
+    nombre: 'Lucía González Blanco',
+    fecha_nacimiento: 1990-07-09T00:00:00.000Z,
+    foto: 'lucia-gonzalez-blanco.jpg',
+    nacionalidad: 'Española',
+    altura: 167,
+    equipo: 'XNESTA - MMR CX TEAM',
+    historial: 'Posición Actual 22 | Posición la temporada pasada: 14 | Puntos Totales: 863',
+    peso: 65,
+    ultimo_palmares: '1ª Campeonato de España Ciclocross Amurrio 2024 - Élite Femenina (CN)'
+  }
+]
+67e2f1f8360470534e78c438
+[
+  {
+    _id: new ObjectId('67e2f1f8360470534e78c438'),
+    nombre: 'serv',
+    fecha_nacimiento: 2025-03-25T00:00:00.000Z,
+    foto: 'felipe-orts-lloret.png',
+    nacionalidad: 'serv',
+    altura: 141,
+    equipo: 'ser',
+    historial: 'serv',
+    peso: 56,
+    ultimo_palmares: 'serv'
+  }
+]

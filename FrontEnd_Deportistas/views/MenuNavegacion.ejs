@@ -1,0 +1,88 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary fs-3 sticky-top">
+  <div class="container-fluid">
+      <a class="navbar-brand text-danger fw-bold fs-3">CNE</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="/"><span class="navbar-text">Ciclocrós 2025</span>
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="/competiciones">Competiciones</a>
+              </li>
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="/ciclistas" role="button" data-bs-toggle="dropdown"
+                      aria-expanded="false">
+                      Ciclistas
+                  </a>
+                  <ul class="dropdown-menu">
+                      <% ciclistas.forEach((ciclista) => { %>
+                      <li><a class="dropdown-item" href="/ciclistas/<%= ciclista.id %>"><%=ciclista.nombre%></a></li>
+                      <%  }) %>
+                      <li>
+                          <hr class="dropdown-divider">
+                      </li>
+                      <li><a class="dropdown-item" href="/ciclistas">Ver todos</a></li>
+                  </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/Contacto">Contacto</a>
+              </li>
+          </ul>
+          <button id="ampliar-letra" class="btn btn-outline-danger me-2" aria-label="Aumentar tamaño de letra">A+</button>
+          <button id="reducir-letra" class="btn btn-outline-danger" aria-label="Reducir tamaño de letra">A-</button>
+          <!--<form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-danger" type="submit">Buscar</button>
+          </form>-->
+          <!-- Formulario de búsqueda -->
+          <form id="search-form" class="d-flex" role="search">
+            <input id="search-input" class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search">
+            <button class="btn btn-outline-danger" type="submit">Buscar</button>
+        </form>
+      </div>
+  </div>
+</nav>
+
+<!-- Script para resaltar los resultados de búsqueda -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const searchForm = document.getElementById("search-form");
+        const searchInput = document.getElementById("search-input");
+    
+        searchForm.addEventListener("submit", function(event) {
+            event.preventDefault(); // Evita la recarga de la página
+            
+            let searchTerm = searchInput.value.trim().toLowerCase();
+            if (searchTerm === "") return; // No hacer nada si el input está vacío
+            
+            clearHighlights(); // Elimina resaltados previos
+            
+            let bodyText = document.body.innerHTML;
+            let regex = new RegExp(`(${searchTerm})`, "gi");
+            
+            document.body.innerHTML = bodyText.replace(regex, '<span class="highlight">$1</span>');
+        });
+    
+        function clearHighlights() {
+            document.querySelectorAll(".highlight").forEach(el => {
+                el.outerHTML = el.innerText; // Reemplaza el elemento resaltado por su texto original
+            });
+        }
+    });
+    
+    // Estilos CSS para los resultados resaltados
+    const style = document.createElement('style');
+    style.innerHTML = `
+      .highlight {
+        background-color: yellow;
+        color: black;
+        font-weight: bold;
+      }
+    `;
+    document.head.appendChild(style);
+    </script>

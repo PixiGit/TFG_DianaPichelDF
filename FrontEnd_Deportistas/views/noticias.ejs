@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Listado competiciones</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .container {
+      max-width: 90%;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- menú -->
+  <%- include('./menu') %>
+
+  <h2 class="container-fluid bg-dark text-white display-4 pb-5 pt-5 fw-bold text-center">Listado noticias</h2>
+  <div class="container-fluid m-0 p-0">
+      <div>
+        
+
+        <!-- Botón para crear una nueva competición -->
+        <a id="btnNuevaNoticia" type="button" class="btn btn-outline-success ">Nueva noticia</a>
+
+        <!-- Tabla competiciones existentes -->
+        <table id="noticias" class="table table-striped table-hover text-dark table-bordered">
+          <thead>
+            <tr>
+              <!-- Columnas de la tabla -->
+              <th style="display: none;">ID</th>
+              <th class="display-6 bg-danger text-white text-center fw-bold">Fecha</th>
+              <th class="display-6 bg-danger text-white text-center fw-bold">Titulo</th>
+              <th class="display-6 bg-danger text-white text-center fw-bold">Cuerpo</th>
+              <th class="display-6 bg-danger text-white text-center fw-bold">Foto</th>
+            </tr>
+
+          </thead>
+
+          <tbody>
+            <!-- Mostramos cada noticia en una fila de la tabla -->
+            <% noticias.forEach((noticia)=> { %>
+              <tr>
+                <!-- Datos de cada noticia -->
+                <td style="display: none;"><%=noticia._id%></td>
+                <td><%=noticia.fechapub%></td>
+                <td><%=noticia.titulo%></td>
+                <td><%=noticia.cuerpo%></td>
+                <td><%=noticia.foto%></td>
+                <!-- Botones para editar y borrar cada noticia -->
+                <td>
+                  <a type="button" class="btnEditarNot btn btn-outline-primary text-primary bi bi-pencil"></a>
+                  <a href="#" onclick="confirmDeleteNoticia('<%= noticia._id %>')" class="btn btn-outline-danger bi bi-trash"></a>
+
+                </td>
+              </tr>
+
+              <% }) %>
+          </tbody>
+
+        </table>
+      </div>
+    </div>
+    <!-- editar una noticia -->
+
+    <div id="modalNoticia" class="modal fade modal-red" tabindex="-1" aria-labelledby="modalNoticia" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header bg-danger">
+            <!-- Título del modal -->
+            <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">Editar noticia</h1>
+            <!-- Botón cierre del modal -->
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- Formulario editar la noticias -->
+            <form action="/noticias/editar" method="POST" class="needs-validation" novalidate id="formEditar">
+              <!-- Campo oculto para almacenar el ID de la competición -->
+              <input id="id_editar" name="id_editar" type="text" hidden>
+
+              <!-- Campos de edición -->
+
+              <div class="mb-3">
+                <label for="fechapub_editar" class="col-form-label">Fecha</label>
+                <input id="fechapub_editar" name="fechapub_editar" type="date" class="form-control" required>
+                <div class="invalid-feedback">Por favor, completa este campo.</div>
+              </div>
+              <div class="mb-3">
+                <label for="titulo_editar" class="col-form-label">Lugar</label>
+                <input id="titulo_editar" name="titulo_editar" type="text" class="form-control" required>
+                <div class="invalid-feedback">Por favor, completa este campo.</div>
+              </div>
+              <div class="mb-3">
+                <label for="cuerpo_editar" class="col-form-label">Cuerpo</label>
+                <input id="cuerpo_editar" name="cuerpo_editar" type="text" class="form-control" required >
+                <div class="invalid-feedback">Por favor, completa este campo.</div>
+              </div>
+              <div class="mb-3">
+                <label for="foto_editar" class="col-form-label">Foto</label>
+                <input id="foto_editar" name ="foto_editar" type="text" class="form-control" required>
+                <div class="invalid-feedback">Por favor, completa este campo.</div>
+              </div>
+              <div class="mb-3">
+                <label for="photo_editar">Foto:</label>
+                <input onchange="modificarFotoSeleccionadaEditar()" type="file" class="form-control-file" id="photo_editar" name="photo_editar" accept="image/*" >
+              </div>
+              <!-- Mensajes de error -->
+              <div id="errorEditar" class="text-success"></div>
+              <div class="modal-footer">
+                <!-- Botón para actualizar la competición -->
+               
+                <button type="submit" class="btn btn-success">Actualizar</button>
+
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal crear una noticia -->
+
+    <div id="modalNuevaNoticia" class="modal fade-red" tabindex="-1" aria-labelledby="modalNuevaNoticia" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header bg-danger">
+            <!-- Título del modal -->
+            <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">Crear nueva noticia</h1>
+            <!-- Botón de cierre del modal -->
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- Formulario para crear una nueva noticias -->
+            <form action="/noticias/crear" method="POST" class="needs-validation" novalidate id="formCrearN" enctype="multipart/form-data">
+
+              <!-- Campos de creación -->
+              <div class="mb-3">
+                <label for="fechapub" class="col-form-label">Fecha</label>
+                <input id="fechapub" name="fechapub" type="date" class="form-control" required>
+                <div class="invalid-feedback">Por favor, completa este campo.</div>
+              </div>
+
+              <div class="mb-3">
+                <label for="titulo" class="col-form-label">Titulo</label>
+                <input id="titulo" name="titulo" type="text" class="form-control" required>
+                <div class="invalid-feedback">Por favor, completa este campo.</div>
+              </div>
+
+              <div class="mb-3">
+                <label for="cuerpo" class="col-form-label">Cuerpo</label>
+                <input id="cuerpo" name="cuerpo" type="text" class="form-control" required>
+                <div class="invalid-feedback">Por favor, completa este campo.</div>
+              </div>
+
+              <div class="mb-3">
+                <label for="foto" class="col-form-label">Foto</label>
+                <input id="foto" name ="foto" type="text" class="form-control" readonly required>
+                <div class="invalid-feedback">Por favor, completa este campo.</div>
+              </div>
+              <div class="invalid-feedback">Por favor, adjunta una foto.</div>
+              <div class="mb-3">
+                <label for="photo">Foto:</label>
+                <input type="file" onchange="modificarFotoSeleccionada()" class="form-control-file" id="photo" name="photo" accept="image/*" required>
+              </div>
+             
+              <div class="modal-footer">
+                <!-- Botón para guardar la nueva competición -->
+                <button type="submit" class="btn btn-success">Guardar</button>
+
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+ <!-- Script para editar de noticias -->
+ <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const formEditar = document.querySelector('#formEditar');
+
+    formEditar.addEventListener('submit', (event) => {
+      console.log('Submit de editar noticia');
+      if (!formEditar.checkValidity()) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      formEditar.classList.add('was-validated');
+    });
+
+  });
+</script>
+
+<!-- 
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const formCrear = document.querySelector('#formCrearN');
+        const formEditar = document.querySelector('#formEditar');
+        const errorEditar = document.getElementById('errorEditar');
+
+        formCrear.addEventListener('submit', (event) => {
+          console.log('Submit de crear noticia');
+          if (!formCrear.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          formCrear.classList.add('was-validated');
+        });
+
+        if (formEditar) {
+          console.log('Formulario de edición encontrado');
+          formEditar.addEventListener('submit', (event) => {
+            event.preventDefault(); // Evitar que el formulario se envíe y la página se recargue
+            console.log('Submit de editar noticia');
+            // Agrega el console.log aquí para verificar los valores de los campos
+            console.log('fechapub:', document.getElementById('fechapub_editar').value);
+            console.log('titulo:', document.getElementById('titulo_editar').value);
+            console.log('cuerpo:', document.getElementById('cuerpo_editar').value);
+
+            console.log('Foto:', document.getElementById('foto_editar').value);
+            const fechapubEditar = document.getElementById('fechapub_editar').value;
+            const tituloEditar = document.getElementById('titulo_editar').value;
+            const cuerpoEditar = document.getElementById('cuerpo_editar').value;
+            const fotoEditar = document.getElementById('foto_editar').value;
+
+            if (!fechapubEditar.trim() || !tituloEditar.trim() || !cuerpo_editar.trim()|| !fotoEditar.trim()) {
+              errorEditar.textContent = 'Por favor, completa todos los campos.';
+              event.preventDefault(); // Detener el envío del formulario si hay errores
+              event.stopPropagation();
+            } else {
+              errorEditar.textContent = '';
+              formEditar.classList.add('was-validated');
+            }
+          });
+        }
+      });
+    </script> -->
+
+    <!-- Script para confirmar la eliminación de noticias -->
+    <script>
+      function confirmDelete(noticiaId) {
+        console.log('Eliminando noticia con ID:', noticiaId);
+
+        if (confirm('¿Estás seguro de que deseas eliminar esta noticia?')) {
+          // Enviar solicitud DELETE al servidor para eliminar la noticia
+          fetch(`/noticias/borrar/${noticiaId}`, {
+            method: 'DELETE'
+          })
+            .then(response => {
+              if (!response.ok) {
+                throw new Error('No se pudo eliminar la noticia');
+              }
+              // Redireccionar a la página de noticias después de la eliminación
+              window.location.href = '/noticias';
+            })
+            .catch(error => {
+              console.error('Error al eliminar la noticias:', error);
+            });
+        }
+      }
+    </script>
+
+    <!-- Inclusión de los scripts de Bootstrap y de code.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"></script>
+    <script src="js/eventos_noticias.js"></script>
+
+</body>
+
+<!-- pie de página -->
+<footer>
+  <%- include('./footer') %>
+</footer>
+
+</html>
